@@ -1,0 +1,36 @@
+@use 'sass:math';
+
+@import 'styles/variables.scss';
+@import 'styles/typography.scss';
+@import 'styles/grid.scss';
+
+.hero {
+  @include container-grid;
+}
+
+.heroPreheader {
+  @include navText;
+
+  margin-bottom: 16px;
+  margin-left: 0;
+  padding-left: 0;
+  color: $color-grey;
+}
+
+.heroHeader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  margin-left: 0;
+  color: $color-white;
+  text-align: center;
+  grid-column: 1/-1;
+}
+
+.heroText {
+  color: $color-grey;
+  font-size: rem(15px);
+  line-height: math.div(25, 14);
+  text-align: center;
+  grid-column: 1/-1;
+}

@@ -1,0 +1,40 @@
+@use 'sass:math';
+
+// Colors
+$color-white: #fff;
+$color-black: #0b0d17;
+$color-grey: #d0d6f9;
+
+// Transition
+$transition-duration-standard: 0.25s ease;
+$transition-duration-fast: 0.333s ease;
+$transition-duration-slow: 0.444s ease;
+
+// Spacing
+$spacing-largest: 160px;
+$spacing-xxx-large: 120px;
+$spacing-xx-large: 80px;
+$spacing-x-large: 64px;
+$spacing-large: 48px;
+$spacing-semi: 32px;
+$spacing-standard: 24px;
+$spacing-small: 16px;
+$spacing-tiny: 8px;
+$spacing-micro: 4px;
+
+// Miscellaneous
+$base-font-size: $spacing-small;
+$container-width: 1146px;
+$container-padding-desktop: $spacing-large;
+$container-padding-tablet: $spacing-semi;
+$container-padding-mobile: $spacing-small;
+$grid-gutter-width: 35px;
+$grid-gutter-width-mobile: 10px;
+$grid-margin-height: $spacing-standard;
+
+// Convert pixels to rem
+@function rem($pixelSize) {
+  $remSize: math.div($pixelSize, $base-font-size);
+
+  @return #{$remSize}rem;
+}

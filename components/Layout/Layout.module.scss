@@ -1,0 +1,27 @@
+@use 'sass:math';
+
+@import 'styles/variables.scss';
+@import 'styles/typography.scss';
+@import 'styles/grid.scss';
+
+.layout {
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding-top: 92px;
+  background: url('/assets/home/background-home-mobile.jpeg') center no-repeat;
+  background-size: cover !important;
+
+  @include breakpoint(sm-up) {
+    background: url('/assets/home/background-home-tablet.jpeg') center no-repeat;
+  }
+
+  @include breakpoint(md-up) {
+    background: url('/assets/home/background-home-desktop.jpeg') center no-repeat;
+  }
+}

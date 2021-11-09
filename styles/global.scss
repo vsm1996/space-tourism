@@ -1,0 +1,30 @@
+@import './main';
+
+@include google-font('Bellefair', '400');
+@include google-font('Barlow+Condensed', '400');
+
+html {
+  font-size: $base-font-size;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Bellefair', sans-serif;
+  font-weight: 300;
+}
+
+h1 {
+  @include h1;
+}
+
+p {
+  @include bodyText;
+}

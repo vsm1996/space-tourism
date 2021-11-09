@@ -1,0 +1,16 @@
+@use 'sass:math';
+
+@import 'styles/variables.scss';
+@import 'styles/typography.scss';
+@import 'styles/grid.scss';
+
+.header {
+  @include container-grid;
+
+  position: sticky;
+  top: 0;
+  margin-top: -92px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  z-index: 1;
+}

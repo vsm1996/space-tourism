@@ -1,0 +1,74 @@
+@use 'sass:math';
+@import './variables.scss';
+
+@mixin primary-font {
+  font-family: 'Bellefair', sans-serif;
+  font-weight: 400;
+  text-transform: none;
+}
+
+@mixin secondary-font {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 400;
+}
+
+@mixin h1() {
+  @include primary-font;
+
+  font-size: rem(80px);
+  line-height: math.div(80, 100);
+  @include breakpoint(md-up) {
+    font-size: rem(150px);
+  }
+}
+
+@mixin h2() {
+  @include primary-font;
+
+  font-size: rem(100px);
+}
+
+@mixin h3() {
+  @include primary-font;
+
+  font-size: rem(56px);
+}
+
+@mixin h4() {
+  @include primary-font;
+
+  font-size: rem(32px);
+}
+
+@mixin h5() {
+  @include secondary-font;
+
+  font-size: rem(28px);
+  letter-spacing: 4.725px;
+}
+
+@mixin subhead1 {
+  @include primary-font;
+
+  font-size: rem(28px);
+}
+
+@mixin subhead2 {
+  @include secondary-font;
+
+  font-size: rem(14px);
+  letter-spacing: 2.35px;
+}
+
+@mixin navText {
+  @include secondary-font;
+
+  font-size: rem(16px);
+  letter-spacing: 2.7px;
+}
+
+@mixin bodyText {
+  @include secondary-font;
+
+  font-size: rem(18px);
+}

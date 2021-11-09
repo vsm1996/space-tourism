@@ -1,0 +1,19 @@
+@mixin google-font($family, $weight) {
+  @import url('https://fonts.googleapis.com/css2?family=#{$family}:wght@#{$weight}&display=swap');
+}
+
+@mixin buttonReset() {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+}
+
+@mixin listReset() {
+  list-style: none;
+}
+
+@mixin linkReset() {
+  text-decoration: none;
+}
