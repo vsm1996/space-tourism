@@ -15,7 +15,7 @@ const MobileNav = (): JSX.Element => {
 
   return (
     <nav className={cx(styles.mobileNav, { [styles.mobileNav__active]: isOpen })}>
-      <ul>
+      <ul className={styles.mobileNavList}>
         <li>
           <button type='button' onClick={handleClick}>X</button>
         </li>

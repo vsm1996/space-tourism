@@ -6,14 +6,16 @@
 @import 'styles/mixins.scss';
 
 .mobileNav {
-  @include listReset;
-
-  display: none;
+  display: block;
   position: absolute;
-  transform: translateX(125%);
+  right: 0;
+  width: 254px;
+  height: 100%;
+  transform: translateX(200%);
   transition: transform $transition-duration-standard, display $transition-duration-standard;
   background: #ffffff0a;
-  z-index: 10;
+  color: $color-white;
+  z-index: 2;
   backdrop-filter: blur(81.5485px);
 
   @include breakpoint(md-up) {
@@ -21,8 +23,11 @@
   }
 
   &__active {
-    display: block;
     // width: 100%;
     transform: translateX(0%);
   }
+}
+
+.mobileNavList {
+  @include listReset;
 }
