@@ -3,6 +3,7 @@
 @import 'styles/variables.scss';
 @import 'styles/typography.scss';
 @import 'styles/grid.scss';
+@import 'styles/mixins.scss';
 
 .hero {
   @include container-grid;
@@ -25,6 +26,10 @@
   color: $color-white;
   text-align: center;
   grid-column: 1/-1;
+
+  @include breakpoint(md-up) {
+    grid-column: 1/7;
+  }
 }
 
 .heroText {
@@ -33,4 +38,49 @@
   line-height: math.div(25, 14);
   text-align: center;
   grid-column: 1/-1;
+
+  @include breakpoint(md-up) {
+    grid-column: 1/7;
+  }
+}
+
+.heroCTA {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  height: 350px;
+  margin-top: 80px;
+  transition: all $transition-duration-slow;
+  border-radius: 50%;
+  text-align: center;
+  justify-self: center;
+  grid-column: 1/-1;
+
+  @include breakpoint(sm-up) {
+    margin-top: 100px;
+  }
+
+  @include breakpoint(md-up) {
+    margin-top: 0;
+    grid-column: 9/13;
+    grid-row: 1/ span 2;
+  }
+
+  &:hover {
+    background-color: #fff6;
+  }
+}
+
+.heroCTAButton {
+  @include buttonReset;
+
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: $color-white;
+  font-family: 'Bellefair', serif;
+  font-size: rem(37px);
+  text-align: center;
+  text-transform: uppercase;
 }

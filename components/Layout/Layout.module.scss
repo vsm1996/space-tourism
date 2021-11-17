@@ -5,15 +5,7 @@
 @import 'styles/grid.scss';
 
 .layout {
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  padding-top: 92px;
+  // write url conditional to render bg by slug.
   background: url('/assets/home/background-home-mobile.jpeg') center no-repeat;
   background-size: cover !important;
 
@@ -24,4 +16,12 @@
   @include breakpoint(md-up) {
     background: url('/assets/home/background-home-desktop.jpeg') center no-repeat;
   }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }

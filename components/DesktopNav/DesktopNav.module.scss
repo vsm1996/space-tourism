@@ -1,0 +1,32 @@
+@import 'styles/variables.scss';
+@import 'styles/typography.scss';
+@import 'styles/grid.scss';
+
+.desktopNav {
+  padding: 39px 45px;
+  background: rgba(255, 255, 255, 0.04);
+  color: $color-white;
+  backdrop-filter: blur(81.5485px);
+
+  @include breakpoint(lg-up) {
+    padding: 39px 125px;
+  }
+
+  @include breakpoint(md-down) {
+    display: none;
+  }
+}
+
+.desktopNavList {
+  display: flex;
+  list-style: none;
+}
+
+.desktopNavListItem {
+  display: flex;
+  cursor: pointer;
+
+  &:not(:first-of-type) {
+    margin-left: 48px;
+  }
+}

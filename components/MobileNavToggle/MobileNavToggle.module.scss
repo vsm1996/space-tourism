@@ -6,9 +6,8 @@
 @import 'styles/mixins.scss';
 
 .mobileNavToggle {
+  margin-right: 24px;
   cursor: pointer;
-  grid-column: 4/5;
-  justify-self: end;
 
   @include breakpoint(md-up) {
     display: none;
