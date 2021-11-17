@@ -8,6 +8,7 @@
   // write url conditional to render bg by slug.
   background: url('/assets/home/background-home-mobile.jpeg') center no-repeat;
   background-size: cover !important;
+  overflow-x: hidden;
 
   @include breakpoint(sm-up) {
     background: url('/assets/home/background-home-tablet.jpeg') center no-repeat;

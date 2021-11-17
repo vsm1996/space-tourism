@@ -9,7 +9,6 @@
   display: block;
   position: absolute;
   right: 0;
-  width: 254px;
   height: 100%;
   transform: translateX(200%);
   transition: transform $transition-duration-standard, display $transition-duration-standard;
@@ -24,6 +23,7 @@
 
   &__active {
     // width: 100%;
+    width: 254px;
     transform: translateX(0%);
   }
 }
