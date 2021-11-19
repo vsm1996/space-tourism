@@ -24,42 +24,42 @@ const MobileNav = (): JSX.Element => {
         </li>
         <li className={styles.mobileNavListItem}>
           <Link href='/' passHref>
-            <a href='/' className={styles.mobileNavListLink}>
+            <span className={styles.mobileNavListLink}>
               00
               <span className={styles.mobileNavListItemText}>
                 Home
               </span>
-            </a>
+            </span>
           </Link>
         </li>
         <li className={styles.mobileNavListItem}>
           <Link href='/destination' passHref>
-            <a href='/' className={styles.mobileNavListLink}>
+            <span className={styles.mobileNavListLink}>
               01
               <span className={styles.mobileNavListItemText}>
                 Destination
               </span>
-            </a>
+            </span>
           </Link>
         </li>
         <li className={styles.mobileNavListItem}>
           <Link href='/crew' passHref>
-            <a href='/' className={styles.mobileNavListLink}>
+            <span className={styles.mobileNavListLink}>
               02
               <span className={styles.mobileNavListItemText}>
                 Crew
               </span>
-            </a>
+            </span>
           </Link>
         </li>
         <li className={styles.mobileNavListItem}>
           <Link href='/technology' passHref>
-            <a href='/' className={styles.mobileNavListLink}>
+            <span className={styles.mobileNavListLink}>
               03
               <span className={styles.mobileNavListItemText}>
                 Technology
               </span>
-            </a>
+            </span>
           </Link>
         </li>
       </ul>

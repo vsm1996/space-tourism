@@ -34,9 +34,8 @@
 }
 
 .mobileNavListLink {
-  @include linkReset;
-
   color: $color-white;
+  cursor: pointer;
 }
 
 .mobileNavBtnItem {
