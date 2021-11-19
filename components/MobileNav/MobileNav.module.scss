@@ -8,13 +8,15 @@
 .mobileNav {
   display: block;
   position: absolute;
+  top: 0;
   right: 0;
-  height: 100%;
+  height: 100vh;
+  padding: 30px 26px;
   transform: translateX(200%);
   transition: transform $transition-duration-standard, display $transition-duration-standard;
   background: #ffffff0a;
   color: $color-white;
-  z-index: 2;
+  z-index: 20;
   backdrop-filter: blur(81.5485px);
 
   @include breakpoint(md-up) {
@@ -22,7 +24,6 @@
   }
 
   &__active {
-    // width: 100%;
     width: 254px;
     transform: translateX(0%);
   }
@@ -30,4 +31,58 @@
 
 .mobileNavList {
   @include listReset;
+}
+
+.mobileNavListLink {
+  @include linkReset;
+
+  color: $color-white;
+}
+
+.mobileNavBtnItem {
+  margin-bottom: 35px;
+  text-align: right;
+}
+
+.mobileNavBtn {
+  @include buttonReset;
+
+  color: white;
+  cursor: pointer;
+}
+
+.mobileNavListItem {
+  @include secondary-font;
+
+  position: relative;
+  margin-bottom: 32px;
+  font-size: rem(16px);
+  font-weight: 700;
+  letter-spacing: 2.7px;
+  line-height: math.div(19, 16);
+
+  &::after {
+    display: block;
+    position: absolute;
+    top: 25%;
+    right: -40px;
+    width: 31px;
+    height: 4px;
+    transform: translateY(0%) rotate(90deg);
+    transition: opacity $transition-duration-standard;
+    border-bottom: 3px solid white;
+    content: '';
+    opacity: 0;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+.mobileNavListItemText {
+  margin-left: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  opacity: 0.88;
 }

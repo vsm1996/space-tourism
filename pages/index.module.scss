@@ -7,6 +7,22 @@
 
 .hero {
   @include container-grid;
+
+  padding-top: 118px;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  grid-column: 1/-1;
+
+  @include breakpoint(md-up) {
+    align-items: flex-start;
+    grid-column: 1/8;
+  }
 }
 
 .heroPreheader {
@@ -16,6 +32,10 @@
   margin-left: 0;
   padding-left: 0;
   color: $color-grey;
+
+  @include breakpoint(md-up) {
+    text-align: left;
+  }
 }
 
 .heroHeader {
@@ -25,10 +45,9 @@
   margin-left: 0;
   color: $color-white;
   text-align: center;
-  grid-column: 1/-1;
 
   @include breakpoint(md-up) {
-    grid-column: 1/7;
+    text-align: left;
   }
 }
 
@@ -37,25 +56,41 @@
   font-size: rem(15px);
   line-height: math.div(25, 14);
   text-align: center;
-  grid-column: 1/-1;
 
   @include breakpoint(md-up) {
-    grid-column: 1/7;
+    width: 47%;
+    text-align: left;
   }
 }
 
 .heroCTA {
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: center;
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
   margin-top: 80px;
-  transition: all $transition-duration-slow;
-  border-radius: 50%;
   text-align: center;
   justify-self: center;
   grid-column: 1/-1;
+
+  &::after {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all $transition-duration-slow;
+    border-radius: 50%;
+    background-color: #fff6;
+    content: '';
+  }
+
+  &:hover::after {
+    transform: scale(1.65);
+  }
 
   @include breakpoint(sm-up) {
     margin-top: 100px;
@@ -66,21 +101,18 @@
     grid-column: 9/13;
     grid-row: 1/ span 2;
   }
-
-  &:hover {
-    background-color: #fff6;
-  }
 }
 
 .heroCTAButton {
   @include buttonReset;
 
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   background-color: $color-white;
   font-family: 'Bellefair', serif;
   font-size: rem(37px);
   text-align: center;
   text-transform: uppercase;
+  z-index: 0;
 }

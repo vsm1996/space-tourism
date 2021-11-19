@@ -3,13 +3,24 @@
 @import 'styles/grid.scss';
 
 .desktopNav {
-  padding: 39px 45px;
   background: rgba(255, 255, 255, 0.04);
   color: $color-white;
   backdrop-filter: blur(81.5485px);
 
-  @include breakpoint(lg-up) {
-    padding: 39px 125px;
+  &::before {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: -65%;
+    width: 473px;
+    height: 1px;
+    background-color: $color-white;
+    content: '';
+    opacity: 0.25;
+
+    @include breakpoint(lg-down) {
+      display: none;
+    }
   }
 
   @include breakpoint(md-down) {
@@ -19,14 +30,33 @@
 
 .desktopNavList {
   display: flex;
+  padding: 39px 125px;
   list-style: none;
 }
 
 .desktopNavListItem {
   display: flex;
+  position: relative;
   cursor: pointer;
 
   &:not(:first-of-type) {
     margin-left: 48px;
+  }
+
+  &::after {
+    display: block;
+    position: absolute;
+    bottom: -42.5px;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    transition: opacity $transition-duration-standard;
+    border-bottom: 3px solid white;
+    content: '';
+    opacity: 0;
+  }
+
+  &:hover::after {
+    opacity: 1;
   }
 }

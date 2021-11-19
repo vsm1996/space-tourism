@@ -6,6 +6,7 @@
 
 .layout {
   // write url conditional to render bg by slug.
+  height: 100vh;
   background: url('/assets/home/background-home-mobile.jpeg') center no-repeat;
   background-size: cover !important;
   overflow-x: hidden;
@@ -24,5 +25,4 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
 }
