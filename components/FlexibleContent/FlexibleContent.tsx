@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from 'next/image'
 
 import styles from './FlexibleContent.module.scss'
 
+// split these up into separate components
 const destination = (content: any): JSX.Element => {
   console.log(content)
   return (
@@ -18,7 +20,7 @@ const destination = (content: any): JSX.Element => {
           <li>Titan</li>
         </ul>
         <div>
-          <Image src='/destination/image-moon.png' width={300} height={300} />
+          <Image src='/destination/image-moon.png' width={100} height={100} />
           <h1>Moon</h1>
           <p>
             See our planet as you’ve never seen it before.
@@ -43,12 +45,35 @@ const destination = (content: any): JSX.Element => {
   )
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const FlexibleContent = ({ pathname, dataContent }: any): JSX.Element => {
-  console.log(pathname, dataContent)
+  let displayContent
+  switch (pathname) {
+    case 'destination': {
+      displayContent = destination(dataContent)
+      break
+    }
+    case 'crew': {
+      displayContent = (
+        <h1>
+          crew
+        </h1>
+      )
+      break
+    }
+    case 'technology': {
+      displayContent = (
+        <h1>
+          technology
+        </h1>
+      )
+      break
+    }
+    default: displayContent = <div />
+  }
   return (
     <div className={styles.flexibleLayout}>
-      hi, this will display content for destination, crew, and technology
-      {destination(dataContent)}
+      {displayContent}
     </div>
   )
 }
