@@ -7,42 +7,42 @@ const DesktopNav = (): JSX.Element => (
     <ul className={styles.desktopNavList}>
       <li className={styles.desktopNavListItem}>
         <Link href='/' passHref>
-          <a href='/' className={styles.desktopNavListLink}>
+          <span className={styles.desktopNavListLink}>
             00
             <span className={styles.desktopNavListItemText}>
               Home
             </span>
-          </a>
+          </span>
         </Link>
       </li>
       <li className={styles.desktopNavListItem}>
         <Link href='/destination' passHref>
-          <a href='/destination' className={styles.desktopNavListLink}>
+          <span className={styles.desktopNavListLink}>
             01
             <span className={styles.desktopNavListItemText}>
               Destination
             </span>
-          </a>
+          </span>
         </Link>
       </li>
       <li className={styles.desktopNavListItem}>
         <Link href='/crew' passHref>
-          <a href='/crew' className={styles.desktopNavListLink}>
+          <span className={styles.desktopNavListLink}>
             02
             <span className={styles.desktopNavListItemText}>
               Crew
             </span>
-          </a>
+          </span>
         </Link>
       </li>
       <li className={styles.desktopNavListItem}>
         <Link href='/technology' passHref>
-          <a href='/technology' className={styles.desktopNavListLink}>
+          <span className={styles.desktopNavListLink}>
             03
             <span className={styles.desktopNavListItemText}>
               Technology
             </span>
-          </a>
+          </span>
         </Link>
       </li>
     </ul>
