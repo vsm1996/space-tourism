@@ -7,6 +7,7 @@
 .layout {
   // write url conditional to render bg by slug.
   height: 100vh;
+  padding-bottom: 50px;
   background: url('/assets/home/background-home-mobile.jpeg') center no-repeat;
   background-size: cover !important;
   overflow-x: hidden;
@@ -16,6 +17,7 @@
   }
 
   @include breakpoint(md-up) {
+    // padding-bottom: 0;
     background: url('/assets/home/background-home-desktop.jpeg') center no-repeat;
   }
 }

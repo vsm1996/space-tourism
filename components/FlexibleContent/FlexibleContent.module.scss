@@ -1,0 +1,22 @@
+@use 'sass:math';
+
+@import 'styles/variables.scss';
+@import 'styles/typography.scss';
+@import 'styles/grid.scss';
+@import 'styles/mixins.scss';
+
+.flexibleLayout {
+  color: $color-white;
+}
+
+.destinationCTA {
+  text-transform: uppercase;
+
+  &::before {
+    width: 100%;
+    margin-right: 28px;
+    line-height: math.div(34, 28);
+    content: '01';
+    opacity: 0.25;
+  }
+}

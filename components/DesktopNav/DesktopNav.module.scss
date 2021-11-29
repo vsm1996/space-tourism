@@ -1,5 +1,6 @@
 @import 'styles/variables.scss';
 @import 'styles/typography.scss';
+@import 'styles/mixins.scss';
 @import 'styles/grid.scss';
 
 .desktopNav {
@@ -28,9 +29,18 @@
   }
 }
 
+.desktopNavListLink {
+  @include linkReset();
+
+  color: $color-white;
+  cursor: pointer;
+}
+
 .desktopNavList {
   display: flex;
   padding: 39px 125px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
   list-style: none;
 }
 
@@ -59,4 +69,11 @@
   &:hover::after {
     opacity: 1;
   }
+}
+
+.desktopNavListItemText {
+  margin-left: 14px;
+  font-weight: 300;
+  text-transform: uppercase;
+  opacity: 0.88;
 }

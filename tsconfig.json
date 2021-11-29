@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
       "@/assets/*": [
         "assets/*"
@@ -21,7 +21,7 @@
         "context/*"
       ]
     },
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",

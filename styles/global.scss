@@ -5,6 +5,7 @@
 
 html {
   font-size: $base-font-size;
+  scroll-behavior: smooth;
   box-sizing: border-box;
 }
 
@@ -17,12 +18,28 @@ html {
 }
 
 body {
-  font-family: 'Bellefair', sans-serif;
+  font-family: 'Bellefair', serif;
   font-weight: 300;
 }
 
 h1 {
   @include h1;
+}
+
+h2 {
+  @include h2;
+}
+
+h3 {
+  @include h3;
+}
+
+h4 {
+  @include h4;
+}
+
+h5 {
+  @include h5;
 }
 
 p {
