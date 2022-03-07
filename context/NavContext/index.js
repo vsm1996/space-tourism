@@ -1,25 +1,41 @@
 import { createContext, useState, useContext } from 'react'
 
+const NavPathContext = createContext()
+const NavSetPath = createContext()
 const NavStateContext = createContext()
 const NavSetContext = createContext()
-const NavElementContext = createContext()
-const NavSetElement = createContext()
 
 const NavProvider = ({ children }) => {
+  const [currentPath, setCurrentPath] = useState('home')
   const [state, navSet] = useState({ isOpen: false })
-  const [navElement, setNavElement] = useState(null)
 
   return (
-    <NavStateContext.Provider value={state}>
-      <NavElementContext.Provider value={navElement}>
-        <NavSetContext.Provider value={navSet}>
-          <NavSetElement.Provider value={setNavElement}>
+    <NavPathContext.Provider value={currentPath}>
+      <NavStateContext.Provider value={state}>
+        <NavSetPath.Provider value={setCurrentPath}>
+          <NavSetContext.Provider value={navSet}>
             {children}
-          </NavSetElement.Provider>
-        </NavSetContext.Provider>
-      </NavElementContext.Provider>
-    </NavStateContext.Provider>
+          </NavSetContext.Provider>
+        </NavSetPath.Provider>
+      </NavStateContext.Provider>
+    </NavPathContext.Provider>
   )
+}
+
+const usePathState = () => {
+  const context = useContext(NavPathContext)
+  if (context === undefined) {
+    throw new Error('usePathState must be used within a NavProvider')
+  }
+  return context
+}
+
+const usePathSet = () => {
+  const context = useContext(NavSetPath)
+  if (context === undefined) {
+    throw new Error('usePathSet must be used within a NavProvider')
+  }
+  return context
 }
 
 const useNavState = () => {
@@ -38,22 +54,6 @@ const useNavSet = () => {
   return context
 }
 
-const useNavElement = () => {
-  const context = useContext(NavElementContext)
-  if (context === undefined) {
-    throw new Error('useNavElement must be used within a NavProvider')
-  }
-  return context
-}
-
-const useElementSet = () => {
-  const context = useContext(NavSetElement)
-  if (context === undefined) {
-    throw new Error('useNavElement must be used within a NavProvider')
-  }
-  return context
-}
-
 export {
-  NavProvider, useNavState, useNavSet, useNavElement, useElementSet,
+  NavProvider, usePathState, usePathSet, useNavState, useNavSet,
 }

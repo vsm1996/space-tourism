@@ -1,7 +1,11 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import cx from 'classnames'
 import Link from 'next/link'
 
-import { useNavState, useNavSet } from '../../context/NavContext'
+import {
+  useNavState, useNavSet, usePathSet,
+} from '../../context/NavContext'
 import Close from '../svgs/Close'
 
 import styles from './MobileNav.module.scss'
@@ -9,9 +13,15 @@ import styles from './MobileNav.module.scss'
 const MobileNav = (): JSX.Element => {
   const { isOpen } = useNavState()
   const navSet = useNavSet()
+  const pathSet = usePathSet()
 
   const handleClick = (): void => {
     navSet({ isOpen: false })
+  }
+
+  const handlePathChange = (e: any): void => {
+    const setPath = e.target.textContent.toLowerCase()
+    pathSet(setPath)
   }
 
   return (
@@ -22,7 +32,7 @@ const MobileNav = (): JSX.Element => {
             <Close />
           </button>
         </li>
-        <li className={styles.mobileNavListItem}>
+        <li className={styles.mobileNavListItem} onClick={handlePathChange}>
           <Link href='/' passHref>
             <span className={styles.mobileNavListLink}>
               00
@@ -32,7 +42,7 @@ const MobileNav = (): JSX.Element => {
             </span>
           </Link>
         </li>
-        <li className={styles.mobileNavListItem}>
+        <li className={styles.mobileNavListItem} onClick={handlePathChange}>
           <Link href='/destination' passHref>
             <span className={styles.mobileNavListLink}>
               01
@@ -42,7 +52,7 @@ const MobileNav = (): JSX.Element => {
             </span>
           </Link>
         </li>
-        <li className={styles.mobileNavListItem}>
+        <li className={styles.mobileNavListItem} onClick={handlePathChange}>
           <Link href='/crew' passHref>
             <span className={styles.mobileNavListLink}>
               02
@@ -52,7 +62,7 @@ const MobileNav = (): JSX.Element => {
             </span>
           </Link>
         </li>
-        <li className={styles.mobileNavListItem}>
+        <li className={styles.mobileNavListItem} onClick={handlePathChange}>
           <Link href='/technology' passHref>
             <span className={styles.mobileNavListLink}>
               03

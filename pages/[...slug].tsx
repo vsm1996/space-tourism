@@ -1,18 +1,25 @@
-import { useRouter } from 'next/router'
+import { useRouter, withRouter } from 'next/router'
 import type { NextPage } from 'next'
 
-import * as data from '../lib/data.json'
+import data from '../lib/data.json'
+
+import {
+  usePathState,
+} from '../context/NavContext'
 
 import FlexibleContent from '../components/FlexibleContent'
 import Layout from '../components/Layout'
 
 import styles from './Slug.module.scss'
 
-const Page: NextPage = () => {
+const Page: NextPage = (props) => {
+  const path = usePathState()
+
   const { asPath } = useRouter()
+
   const pathname = asPath.substring(1)
   const dataTypeUnset: any = data
-  const infoPackage: any = dataTypeUnset[pathname]
+  const infoPackage: any = dataTypeUnset[`${pathname}`]
 
   return (
     <Layout>
@@ -26,4 +33,5 @@ const Page: NextPage = () => {
     </Layout>
   )
 }
-export default Page
+
+export default withRouter(Page)

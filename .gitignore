@@ -12,6 +12,9 @@
 /.next/
 /out/
 
+#starter code
+/starter-code
+
 # production
 /build
 
