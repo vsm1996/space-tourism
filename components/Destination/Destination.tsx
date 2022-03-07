@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react'
+import cx from 'classnames'
 import Image from 'next/image'
 
 import {
   usePathState,
 } from '../../context/NavContext'
+
+import DestinationButton from '../DestinationButton'
 
 import styles from './Destination.module.scss'
 
@@ -27,6 +30,7 @@ type AppProps = {
 
 const Destination = ({ content }: any): JSX.Element => {
   const [currentDestination, changeCurrentDestination] = useState({
+    index: 0,
     name: 'Moon',
     images: {
       png: './assets/destination/image-moon.png',
@@ -40,12 +44,15 @@ const Destination = ({ content }: any): JSX.Element => {
   const handleClick = (e: any) => {
     e.preventDefault()
 
-    const destinationData: any = content[e.target.value]
+    const dataIndex = e.target.value
+
+    const destinationData: any = content[dataIndex]
+    destinationData.index = dataIndex
     changeCurrentDestination(destinationData)
   }
 
   const {
-    name, description, distance, travel,
+    name, description, distance, travel, index,
   } = currentDestination
 
   return (
@@ -53,29 +60,60 @@ const Destination = ({ content }: any): JSX.Element => {
       <h5 className={styles.destinationCTA}>
         Pick yor destination
       </h5>
-      <Image src='/destination/image-moon.png' width={100} height={100} />
+      <Image src='/assets/destination/image-moon.png' width={170} height={170} />
       <div>
-        <ul>
-          {/* Add button element to li */}
-          <li>
-            <button type='button' onClick={handleClick} value={0}>
-              Moon
-            </button>
+        <ul
+          className={cx(
+            styles.destinationList,
+          )}
+        >
+          <li
+            className={cx(
+              styles.destinationListItem,
+            )}
+          >
+            <DestinationButton
+              handleClick={handleClick}
+              currentIndex={index}
+              index={0}
+              label='Moon'
+            />
           </li>
-          <li>
-            <button type='button' onClick={handleClick} value={1}>
-              Mars
-            </button>
+          <li
+            className={cx(
+              styles.destinationListItem,
+            )}
+          >
+            <DestinationButton
+              handleClick={handleClick}
+              currentIndex={index}
+              index={1}
+              label='Mars'
+            />
           </li>
-          <li>
-            <button type='button' onClick={handleClick} value={2}>
-              Europa
-            </button>
+          <li
+            className={cx(
+              styles.destinationListItem,
+            )}
+          >
+            <DestinationButton
+              handleClick={handleClick}
+              currentIndex={index}
+              index={2}
+              label='Europa'
+            />
           </li>
-          <li>
-            <button type='button' onClick={handleClick} value={3}>
-              Titan
-            </button>
+          <li
+            className={cx(
+              styles.destinationListItem,
+            )}
+          >
+            <DestinationButton
+              handleClick={handleClick}
+              currentIndex={index}
+              index={3}
+              label='Titan'
+            />
           </li>
         </ul>
         <div>

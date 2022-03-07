@@ -1,0 +1,21 @@
+@use 'sass:math';
+
+@import 'styles/variables.scss';
+@import 'styles/typography.scss';
+@import 'styles/grid.scss';
+@import 'styles/mixins.scss';
+
+.destinationButton {
+  @include buttonReset;
+
+  color: $color-grey;
+  font-size: rem(14px);
+  font-family: 'Barlow Condensed', sans-serif;
+  line-height: math.div(16.8, 14);
+  letter-spacing: 2.36px;
+  text-transform: uppercase;
+
+  &__active {
+    color: white;
+  }
+}

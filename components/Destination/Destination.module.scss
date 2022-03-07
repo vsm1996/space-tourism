@@ -7,7 +7,13 @@
 
 .destination {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
+
+  @include breakpoint(md-up) {
+    flex-direction: row;
+  }
 
   & .destinationCTA {
     text-transform: uppercase;
@@ -20,4 +26,12 @@
       opacity: 0.25;
     }
   }
+}
+
+.destinationList {
+  padding: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
 }
