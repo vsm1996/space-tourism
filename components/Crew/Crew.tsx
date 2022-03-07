@@ -42,7 +42,7 @@ const Crew = ({ content }: any): JSX.Element => {
     changeCurrentCrew(content[e.target.value])
   }
 
-  const { name, role } = currentCrew
+  const { name, role, bio } = currentCrew
 
   return (
     <section className={styles.crew}>
@@ -58,9 +58,7 @@ const Crew = ({ content }: any): JSX.Element => {
             { name }
           </h1>
           <p>
-            Douglas Gerald Hurley is an American engineer,
-            former Marine Corps pilot and former NASA astronaut.
-            He launched into space for the third time as commander of Crew Dragon Demo-2.
+            {bio}
           </p>
           <Image src='/destination/image-moon.png' width={100} height={100} />
         </div>

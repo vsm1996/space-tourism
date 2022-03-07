@@ -44,7 +44,9 @@ const Destination = ({ content }: any): JSX.Element => {
     changeCurrentDestination(destinationData)
   }
 
-  const { name } = currentDestination
+  const {
+    name, description, distance, travel,
+  } = currentDestination
 
   return (
     <section className={styles.destination}>
@@ -79,19 +81,21 @@ const Destination = ({ content }: any): JSX.Element => {
         <div>
           <h1>{name}</h1>
           <p>
-            See our planet as you’ve never seen it before.
-            A perfect relaxing trip away to help regain perspective and come back refreshed.
-            While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.
+            {description}
           </p>
           <div>
             <span>
               <p>
                 Avg. Distance
+                {' '}
+                {distance}
               </p>
             </span>
             <span>
               <p>
                 Est. Travel Time
+                {' '}
+                {travel}
               </p>
             </span>
           </div>

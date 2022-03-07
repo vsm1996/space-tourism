@@ -57,17 +57,17 @@ const Technology = ({ content }: any): JSX.Element => {
           {/* Add button element to li */}
           <li>
             <button type='button' onClick={handleClick} value={0}>
-              Launch vehicle
+              01 Launch vehicle
             </button>
           </li>
           <li>
             <button type='button' onClick={handleClick} value={1}>
-              Spaceport
+              02 Spaceport
             </button>
           </li>
           <li>
             <button type='button' onClick={handleClick} value={2}>
-              Space capsule
+              03 Space capsule
             </button>
           </li>
         </ul>
