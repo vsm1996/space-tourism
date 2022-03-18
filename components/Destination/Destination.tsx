@@ -33,8 +33,8 @@ const Destination = ({ content }: any): JSX.Element => {
     index: 0,
     name: 'Moon',
     images: {
-      png: './assets/destination/image-moon.png',
-      webp: './assets/destination/image-moon.webp',
+      png: '/assets/destination/image-moon.png',
+      webp: '/assets/destination/image-moon.webp',
     },
     description: 'See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.',
     distance: '384,400 km',
@@ -52,7 +52,7 @@ const Destination = ({ content }: any): JSX.Element => {
   }
 
   const {
-    name, description, distance, travel, index,
+    name, description, distance, travel, index, images,
   } = currentDestination
 
   return (
@@ -60,82 +60,92 @@ const Destination = ({ content }: any): JSX.Element => {
       <h5 className={styles.destinationCTA}>
         Pick yor destination
       </h5>
-      <Image src='/assets/destination/image-moon.png' width={170} height={170} />
-      <div>
-        <ul
-          className={cx(
-            styles.destinationList,
-          )}
-        >
-          <li
+      <div className={styles.destinationContentWrap}>
+        <div className={styles.destinationImageWrap}>
+          <Image src={images.png} width={445} height={445} layout='responsive' />
+        </div>
+        <div className={styles.destinationTextWrap}>
+          <ul
             className={cx(
-              styles.destinationListItem,
+              styles.destinationList,
             )}
           >
-            <DestinationButton
-              handleClick={handleClick}
-              currentIndex={index}
-              index={0}
-              label='Moon'
-            />
-          </li>
-          <li
-            className={cx(
-              styles.destinationListItem,
-            )}
-          >
-            <DestinationButton
-              handleClick={handleClick}
-              currentIndex={index}
-              index={1}
-              label='Mars'
-            />
-          </li>
-          <li
-            className={cx(
-              styles.destinationListItem,
-            )}
-          >
-            <DestinationButton
-              handleClick={handleClick}
-              currentIndex={index}
-              index={2}
-              label='Europa'
-            />
-          </li>
-          <li
-            className={cx(
-              styles.destinationListItem,
-            )}
-          >
-            <DestinationButton
-              handleClick={handleClick}
-              currentIndex={index}
-              index={3}
-              label='Titan'
-            />
-          </li>
-        </ul>
-        <div>
-          <h1>{name}</h1>
-          <p>
-            {description}
-          </p>
-          <div>
-            <span>
-              <p>
-                Avg. Distance
+            <li
+              className={cx(
+                styles.destinationListItem,
+              )}
+            >
+              <DestinationButton
+                handleClick={handleClick}
+                currentIndex={index}
+                index={0}
+                label='Moon'
+              />
+            </li>
+            <li
+              className={cx(
+                styles.destinationListItem,
+              )}
+            >
+              <DestinationButton
+                handleClick={handleClick}
+                currentIndex={index}
+                index={1}
+                label='Mars'
+              />
+            </li>
+            <li
+              className={cx(
+                styles.destinationListItem,
+              )}
+            >
+              <DestinationButton
+                handleClick={handleClick}
+                currentIndex={index}
+                index={2}
+                label='Europa'
+              />
+            </li>
+            <li
+              className={cx(
+                styles.destinationListItem,
+              )}
+            >
+              <DestinationButton
+                handleClick={handleClick}
+                currentIndex={index}
+                index={3}
+                label='Titan'
+              />
+            </li>
+          </ul>
+          <div className={styles.destinationTextContent}>
+            <h1 className={styles.destinationHeader}>
+              {name}
+            </h1>
+            <p className={styles.destinationDescription}>
+              {description}
+            </p>
+            <div className={styles.destinationTravelWrap}>
+              <span className={styles.destinationTravelSpan}>
+                <p className={styles.destinationTravelHeader}>
+                  Avg. Distance
+                </p>
                 {' '}
-                {distance}
-              </p>
-            </span>
-            <span>
-              <p>
-                Est. Travel Time
+                <p>
+                  {distance}
+                </p>
+              </span>
+              <span className={styles.destinationTravelSpan}>
+                <p className={styles.destinationTravelHeader}>
+                  Est. Travel Time
+                </p>
                 {' '}
-                {travel}
-              </p>
-            </span>
+                <p>
+                  {travel}
+                </p>
+              </span>
+            </div>
           </div>
         </div>
       </div>

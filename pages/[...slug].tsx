@@ -24,11 +24,7 @@ const Page: NextPage = (props) => {
   return (
     <Layout>
       <>
-        <div className={styles.contentContainer}>
-          <div className={styles.page}>
-            <FlexibleContent pathname={pathname} dataContent={infoPackage} />
-          </div>
-        </div>
+        <FlexibleContent pathname={pathname} dataContent={infoPackage} />
       </>
     </Layout>
   )

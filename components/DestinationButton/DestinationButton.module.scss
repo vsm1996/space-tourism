@@ -14,8 +14,28 @@
   line-height: math.div(16.8, 14);
   letter-spacing: 2.36px;
   text-transform: uppercase;
+  transition: color $transition-duration-standard;
+
+  &:hover {
+    color: $color-white;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -12.5px;
+    left: 50%;
+    width: 0px;
+    transform: translateX(-50%);
+  }
 
   &__active {
-    color: white;
+    color: $color-white;
+
+    &::after {
+      width: 41px;
+      border: 1px solid $color-white;
+    }
   }
 }

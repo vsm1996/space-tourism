@@ -12,7 +12,7 @@
     display: block;
     position: absolute;
     top: 50%;
-    left: -65%;
+    left: -53%;
     width: 473px;
     height: 1px;
     background-color: $color-white;
@@ -37,11 +37,16 @@
 }
 
 .desktopNavList {
+  width: 830px;
   display: flex;
   padding: 39px 125px;
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 700;
   list-style: none;
+
+  @include breakpoint(lg-down) {
+    width: 675px;
+  }
 }
 
 .desktopNavListItem {
@@ -58,16 +63,15 @@
     position: absolute;
     bottom: -42.5px;
     left: 50%;
-    width: 100%;
+    width: 0%;
     transform: translateX(-50%);
-    transition: opacity $transition-duration-standard;
-    border-bottom: 3px solid white;
+    transition: width $transition-duration-standard;
     content: '';
-    opacity: 0;
   }
-
+  
   &:hover::after {
-    opacity: 1;
+    width: 100%;
+    border-bottom: 3px solid white;
   }
 }
 

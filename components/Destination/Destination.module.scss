@@ -11,12 +11,13 @@
   align-items: center;
   justify-content: space-between;
 
-  @include breakpoint(md-up) {
-    flex-direction: row;
-  }
-
   & .destinationCTA {
     text-transform: uppercase;
+    align-self: flex-start;
+
+    @include breakpoint(lg-down) {
+      align-self: center;
+    }
   
     &::before {
       width: 100%;
@@ -26,12 +27,133 @@
       opacity: 0.25;
     }
   }
+
+  & .destinationList {
+    padding: 26px 0 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+
+    @include breakpoint(mg-up) {
+     padding: 53px 0; 
+    }
+
+    @include breakpoint(lg-up) {
+      padding: 70px 0;
+      justify-content: flex-start;
+    }
+    
+    li {
+      position: relative;
+
+      &:not(:last-child) {
+        margin-right: 36px;
+        padding: 2px 0;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -12.5px;
+        left: 50%;
+        width: 0px;
+        transition: width $transition-duration-standard;
+        transform: translateX(-50%);
+      }
+      
+      &:hover {
+        &::after {
+          border: 1px solid $color-white;
+          width: 41px;
+        }
+      }
+    }
+  }
 }
 
-.destinationList {
-  padding: 70px;
+.destinationContentWrap {
+  margin-top: 64px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  list-style: none;
+
+  @include breakpoint(lg-down) {
+    flex-direction: column;
+  }
+}
+
+.destinationImageWrap {
+  display: block;
+  width: 600px;
+
+  @include breakpoint(xlg-down) {
+    width: 300px;
+  }
+}
+
+.destinationTextWrap {
+  max-width: 445px;
+
+  @include breakpoint(lg-up) {
+    margin-left: 157px;
+  }
+}
+.destinationTextContent {
+
+  @include breakpoint(lg-down) {
+    text-align: center;
+  }
+
+  & .destinationHeader {
+    text-transform: uppercase;
+  }
+
+  & .destinationDescription {
+    margin: 30px 0 54px;
+    color: $color-grey;
+  }
+
+  & .destinationTravelWrap {
+    position: relative;
+    display: flex;
+    padding-top: 20px;
+
+    @include breakpoint(lg-down) {
+      justify-content: center;
+    }
+
+    &::before {
+      display: block;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 444px;
+      height: 1px;
+      background-color: $color-white;
+      content: '';
+      opacity: 0.25;
+  
+      @include breakpoint(lg-down) {
+        display: none;
+      }
+    }
+  }
+
+  & .destinationTravelSpan {
+    display: flex;
+    flex-direction: column;
+
+    &:first-of-type {
+      margin-right: 68px;
+    }
+  }
+
+  & .destinationTravelHeader {
+    @include subhead2;
+
+    margin-bottom: 12px;
+    color: $color-grey;
+    text-transform: uppercase;
+  }
 }

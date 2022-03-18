@@ -9,9 +9,11 @@ $breakpoints: (
   'sm-up': (min-width: 501px),
   'md-up': (min-width: 768px),
   'lg-up': (min-width: 1025px),
+  'xlg-up': (min-width: 1325px),
   'sm-down': (max-width: 500.98px),
   'md-down': (max-width: 768.98px),
   'lg-down': (max-width: 1024.98px),
+  'xlg-down': (max-width: 1324.98px),
 ) !default;
 
 /// Mixin to manage responsive breakpoints
