@@ -64,18 +64,17 @@
     display: block;
     position: absolute;
     top: 25%;
-    right: -40px;
-    width: 31px;
-    height: 4px;
+    right: -39px;
+    width: 0px;
     transform: translateY(0%) rotate(90deg);
-    transition: opacity $transition-duration-standard;
-    border-bottom: 3px solid white;
+    transition: border-bottom $transition-duration-standard, 
+    width $transition-duration-standard;
     content: '';
-    opacity: 0;
   }
-
+  
   &:hover::after {
-    opacity: 1;
+    border-bottom: 3px solid white;
+    width: 31px;
   }
 }
 
