@@ -15,7 +15,7 @@
     text-transform: uppercase;
     align-self: flex-start;
 
-    @include breakpoint(lg-down) {
+    @include breakpoint(md-down) {
       align-self: center;
     }
   
@@ -156,4 +156,11 @@
     color: $color-grey;
     text-transform: uppercase;
   }
+
+  & .destinationTravelValue {
+    @include subhead1;
+
+    line-height: math.div(32, 28);
+    text-transform: uppercase;
+  } 
 }

@@ -132,7 +132,7 @@ const Destination = ({ content }: any): JSX.Element => {
                   Avg. Distance
                 </p>
                 {' '}
-                <p>
+                <p className={styles.destinationTravelValue}>
                   {distance}
                 </p>
               </span>
@@ -141,7 +141,7 @@ const Destination = ({ content }: any): JSX.Element => {
                   Est. Travel Time
                 </p>
                 {' '}
-                <p>
+                <p className={styles.destinationTravelValue}>
                   {travel}
                 </p>
               </span>
