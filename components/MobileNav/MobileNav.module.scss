@@ -66,15 +66,16 @@
     top: 25%;
     right: -39px;
     width: 0px;
+    height: 0px;
     transform: translateY(0%) rotate(90deg);
-    transition: border-bottom $transition-duration-standard, 
-    width $transition-duration-standard;
+    transition: width $transition-duration-standard;
     content: '';
   }
   
   &:hover::after {
-    border-bottom: 3px solid white;
+    background: white;
     width: 31px;
+    height: 4px;
   }
 }
 
