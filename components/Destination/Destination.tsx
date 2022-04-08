@@ -3,10 +3,6 @@ import { useEffect, useState } from 'react'
 import cx from 'classnames'
 import Image from 'next/image'
 
-import {
-  usePathState,
-} from '../../context/NavContext'
-
 import DestinationButton from '../DestinationButton'
 
 import styles from './Destination.module.scss'

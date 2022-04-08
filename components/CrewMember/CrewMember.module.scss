@@ -1,0 +1,170 @@
+@use 'sass:math';
+
+@import 'styles/variables.scss';
+@import 'styles/typography.scss';
+@import 'styles/grid.scss';
+@import 'styles/mixins.scss';
+
+.crewContentWrap {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+
+  @include breakpoint(sm-up) {
+    flex-direction: column;
+  }
+
+  @include breakpoint(xlg-up) {
+    margin-top: 0px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.crewInfoWrap {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  text-align: center;
+  margin-top: rem(32px);
+  max-width: 488px;
+
+  @include breakpoint(sm-up) {
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: rem(40px);
+  }
+
+  @include breakpoint(xlg-up) {
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 0;
+  }
+
+  & .crewRole {
+    text-transform: uppercase;
+    color: $color-white;
+    opacity: 0.5;
+    font-size: ren(16px);
+    line-height: math.div(18, 16);
+
+    @include breakpoint(sm-up) {
+      font-size: rem(24px);
+      line-height: math.div(28, 24);
+    }
+
+    @include breakpoint(xlg-up) {
+      font-size: rem(32px);
+      line-height: math.div(37, 32);
+    }
+  }
+  
+  & .crewName {
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin: 8px 0 52px;
+    font-size: rem(24px);
+    line-height: math.div(28, 24);
+
+    @include breakpoint(sm-up) {
+      font-size: rem(40px);
+      line-height: math.div(46, 40);
+    }
+
+    @include breakpoint(md-up) {
+      margin-bottom: 30px;
+    }
+
+    @include breakpoint(xlg-up) {
+      margin: 15px 0 27px;
+      font-size: rem(56px);
+      line-height: math.div(64, 56);
+    }
+  }
+
+  & .crewBio {
+    @include secondary-font;
+
+    color: $color-grey;
+    font-size: 15px;
+    line-height: math.div(25, 15);
+
+    @include breakpoint(sm-up) {
+      font-size: rem(16px);
+      line-height: math.div(28, 16);
+    }
+
+    @include breakpoint(xlg-up) {
+      font-size: 18px;
+      line-height: math.div(32, 18);
+    }
+  }
+}
+
+.crewList {
+  @include listReset();
+
+  display: flex;
+  align-items: center;
+  margin-bottom: rem(32px);
+
+  @include breakpoint(sm-up) {
+    margin: 40px 0;
+  }
+
+  @include breakpoint(xlg-up) {
+    margin: 120px 0 0;
+  }
+}
+
+.crewListItem {
+  &:not(:last-of-type) {
+    margin-right: 27px;    
+  }
+
+  button {
+    @include buttonReset();
+
+    color: $color-white;
+    background-color: $color-white;
+    opacity: 0.5;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.crewImgWrap {
+  display: block;
+  position: relative;
+  width: 600px;
+  
+  &::before {
+    display: block;
+    position: absolute;
+    bottom: 0%;
+    left: -50%;
+    width: 327px;
+    height: 1px;
+    background-color: $color-white;
+    content: '';
+    opacity: 0.25;
+
+    @include breakpoint(sm-up) {
+      display: none;
+    }
+  }
+
+  @include breakpoint(xlg-down) {
+    width: 300px;
+  }
+
+  @include breakpoint(sm-down) {
+    width: 177px;
+  }
+}

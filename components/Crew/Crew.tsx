@@ -1,10 +1,8 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
 
-import {
-  usePathState,
-} from '../../context/NavContext'
+import CrewMember from '../CrewMember'
 
 import styles from './Crew.module.scss'
 
@@ -15,77 +13,53 @@ interface ImageProp {
 
 interface CrewProp {
   name: string,
-  iamges: ImageProp,
-  description: string,
-  distance: string,
-  travel: string
+  images: ImageProp,
+  role: string,
+  bio: string,
 }
 
 type AppProps = {
   content: CrewProp[]
 }
 
-const Crew = ({ content }: any): JSX.Element => {
-  const [currentCrew, changeCurrentCrew] = useState({
+const Crew = ({ content }: AppProps): JSX.Element => {
+  const [currentCrew, changeCurrentCrew] = useState<CrewProp>({
     name: 'Douglas Hurley',
     images: {
-      png: './assets/crew/image-douglas-hurley.png',
-      webp: './assets/crew/image-douglas-hurley.webp',
+      png: '/assets/crew/image-douglas-hurley.png',
+      webp: '/assets/crew/image-douglas-hurley.webp',
     },
     role: 'Commander',
     bio: 'Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.',
   })
+  const [currentIndex, setIndex] = useState(0)
 
   const handleClick = (e: any) => {
     e.preventDefault()
 
-    changeCurrentCrew(content[e.target.value])
+    const newIndex = e.target.value
+    const changedCrew = content[newIndex]
+    changeCurrentCrew(changedCrew)
+    setIndex(newIndex)
   }
 
-  const { name, role, bio } = currentCrew
+  const {
+    name, role, bio, images,
+  } = currentCrew
 
   return (
     <section className={styles.crew}>
       <h5 className={styles.crewCTA}>
         Meet your crew
       </h5>
-      <div>
-        <div>
-          <h4>
-            { role }
-          </h4>
-          <h1>
-            { name }
-          </h1>
-          <p>
-            {bio}
-          </p>
-          <Image src='/destination/image-moon.png' width={100} height={100} />
-        </div>
-        <ul>
-          {/* Add button element to li */}
-          <li>
-            <button type='button' onClick={handleClick} value={0}>
-              Douglas Hurley
-            </button>
-          </li>
-          <li>
-            <button type='button' onClick={handleClick} value={1}>
-              Mark Shuttleworth
-            </button>
-          </li>
-          <li>
-            <button type='button' onClick={handleClick} value={2}>
-              Victor Glover
-            </button>
-          </li>
-          <li>
-            <button type='button' onClick={handleClick} value={3}>
-              Anousheh Ansari
-            </button>
-          </li>
-        </ul>
-      </div>
+      <CrewMember
+        currentIndex={currentIndex}
+        role={role}
+        name={name}
+        bio={bio}
+        images={images}
+        handleClick={handleClick}
+      />
     </section>
   )
 }

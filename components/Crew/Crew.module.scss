@@ -7,4 +7,20 @@
 
 .crew {
 
+  & .crewCTA {
+    text-transform: uppercase;
+    align-self: flex-start;
+
+    @include breakpoint(md-down) {
+      align-self: center;
+    }
+    
+    &::before {
+      width: 100%;
+      margin-right: 28px;
+      line-height: math.div(34, 28);
+      content: '02';
+      opacity: 0.25;
+    }
+  }
 }
