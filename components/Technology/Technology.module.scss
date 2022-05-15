@@ -5,6 +5,101 @@
 @import 'styles/grid.scss';
 @import 'styles/mixins.scss';
 
-.technology {
+.tech {
 
+}
+
+.techIntro {
+  @include subhead2;
+  @include secondary-font;
+
+  color: $color-grey;
+  text-transform: uppercase;
+}
+
+.techCTA {
+  text-transform: uppercase;
+
+  &::before{
+    content: '03 ';
+    opacity: 0.5;
+  }
+}
+
+.techContent {
+  display: flex;
+  flex-direction: column-reverse;
+
+  @include breakpoint(lg-up) {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+
+.techTextWrapper {
+  flex: 0 0 50%;
+  display: flex;
+  align-items: center;
+
+  @include breakpoint(md-down) {
+    flex-direction: column;
+  }
+}
+
+.techTextContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.techList {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+
+  @include breakpoint(lg-up) {
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 80px;
+  }
+
+  li {
+    &:not(:last-of-type) {
+      margin-bottom: 32px;
+    }
+  }
+}
+
+.techListItemBtn {
+  @include buttonReset;
+
+  font-size: 16px;
+  line-height: math.div(18, 16);
+  color: $color-white;
+  border: 1px solid $color-grey;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+
+  &:hover {
+    @include primary-font;
+
+    background-color: $color-white;
+    color: $color-black;
+  }
+}
+
+.techTitle {
+  text-transform: uppercase;
+}
+
+.techImgWrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -40vw;
+  @include breakpoint(lg-down) {
+    margin-right: -50vw;
+  }
 }
